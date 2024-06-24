@@ -13,7 +13,6 @@ class BitwiseOperator {
         for(int n:arr)
         {
             unique^=n;
-            System.out.println(unique);
         }
         return unique;
     }
