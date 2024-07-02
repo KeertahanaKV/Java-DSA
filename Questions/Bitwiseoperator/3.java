@@ -1,3 +1,4 @@
+//find the ith bit of a number
 import java.util.Scanner;
 
 class BitwiseOperator {
@@ -11,6 +12,9 @@ class BitwiseOperator {
     }
     
     private static int getBit(int n, int i) {
-        return (n >> (i - 1)) & 1;
+        return (n & (1 << i)) >> i;
+       // This shifts the result back to the right by i positions, moving the ith bit to the least significant bit position.
+        //This results in either 0 or 1, depending on the value of the ith bit.
+       //or  return (n >> (i - 1)) & 1;
     }
 }
