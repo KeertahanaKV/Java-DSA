@@ -1,7 +1,7 @@
 import java.util.*;
 class Search {
     public static void main(String[] args) {
-        int[] a={5,7,7,7,8,8,8,9};
+        int[] a={5,7,7,7,8,8,8,8,9};
         int target=7;
        int ans[]={-1,-1};
        //to find the first index;
