@@ -41,3 +41,7 @@ class Solution {
         return list;
     }
 }
+/*Why do we need to sort input array?
+That's because if the total is greater than 0, we want small total next time. In that case, we should move k to the next because input array is sorted, we are sure that if k move to left index, we will get small total compared with the current total.
+
+On the other hand, if the total is smaller than 0, we want big total next time. In that case we should move j to the right index to get big total.*/
