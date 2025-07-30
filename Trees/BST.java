@@ -24,6 +24,12 @@ public class BST {
         return root;
     }
 
+
+     // put(5, 10)
+    // put(1005, 20)
+    // 5 % 1000 = 5 → goes in index 5
+    // 1005 % 1000 = 5 → also index 5 (collision)
+    // → Store both in a linked list at index 5.
     // Search for a value in the BST
     public boolean search(TreeNode root, int key) {
         if (root == null) return false;
