@@ -46,3 +46,12 @@ public class BubbleSort {
         printArray(arr);
     }
 }
+/*
+Time Complexity:
+Best Case:    O(n)        // When the array is already sorted. The inner loop does no swaps, so it breaks early.
+Average Case: O(n^2)      // Nested loops run for most cases when elements are randomly ordered.
+Worst Case:   O(n^2)      // When the array is sorted in reverse order. Every pass does maximum number of comparisons and swaps.
+
+Space Complexity:
+O(1)                     // Bubble sort is an in-place sorting algorithm. No extra space is used apart from a few variables.
+*/
