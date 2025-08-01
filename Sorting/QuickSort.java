@@ -54,4 +54,17 @@ public class QuickSort {
         System.out.println("Sorted array:");
         printArray(arr);
     }
-}
+
+/*
+Time Complexity:
+Best Case:    O(n log n)   // When the pivot divides the array into two nearly equal halves
+Average Case: O(n log n)   // On average, the pivot reasonably divides the array
+Worst Case:   O(n^2)       // When the pivot is always the smallest or largest element (e.g., sorted array)
+
+Space Complexity:
+O(log n)                  // Due to recursion stack in the best/average case
+O(n)                      // In worst case (e.g., already sorted), recursion depth can be n
+
+Note: Quick Sort is an in-place sorting algorithm (no extra array used for sorting).
+*/
+
