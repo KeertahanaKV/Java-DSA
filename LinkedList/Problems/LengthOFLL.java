@@ -22,3 +22,16 @@ class Solution {
     }
 
    
+ // Step 2: Count the number of nodes in the loop
+    private int countLength(ListNode meetingPoint) {
+        int count = 1;
+        ListNode temp = meetingPoint.next;
+
+        while (temp != meetingPoint) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
+    }
+}
