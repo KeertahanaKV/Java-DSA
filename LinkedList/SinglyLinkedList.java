@@ -148,6 +148,30 @@ class SinglyLinkedList {
         }
     }
 
+
+    // public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    //     // Dummy node to start the merged list
+    //     ListNode dummy = new ListNode(0);
+    //     ListNode tail = dummy;
+
+    //     // While both lists are not empty
+    //     while (l1 != null && l2 != null) {
+    //         if (l1.val < l2.val) {
+    //             tail.next = l1;  // attach l1 node
+    //             l1 = l1.next;    // move l1 forward
+    //         } else {
+    //             tail.next = l2;  // attach l2 node
+    //             l2 = l2.next;    // move l2 forward
+    //         }
+    //         tail = tail.next;   // move merged tail forward
+    //     }
+
+    //     // One list is empty; attach the other
+    //     if (l1 != null) tail.next = l1;
+    //     if (l2 != null) tail.next = l2;
+
+    //     return dummy.next; // return head of the merged list
+    }
     // Display the Linked List
     public void display() {
         Node temp = head;
