@@ -58,19 +58,31 @@ class DoublyLinkedList {
         temp.next = newNode;
     }
 
-    // Delete a node by value
-    public void deleteNode(int data) {
+     // ✅ Delete node by value (clean version)
+    public void deleteNode(int value) {
         if (head == null) return;
+
         Node temp = head;
-        while (temp != null && temp.data != data) {
+
+        // Search for the node
+        while (temp != null && temp.data != value) {
             temp = temp.next;
         }
-        if (temp == null) return;
-        if (temp.prev != null) temp.prev.next = temp.next;
-        if (temp.next != null) temp.next.prev = temp.prev;
-        if (temp == head) head = temp.next;
-    }
 
+        // Not found
+        if (temp == null) return;
+
+        // Case 1: Node to delete is head
+        if (temp == head) {
+            head = temp.next;
+            if (head != null) head.prev = null;
+        }
+        // Case 2: Node is not head (middle or tail)
+        else {
+            temp.prev.next = temp.next;
+            if (temp.next != null) temp.next.prev = temp.prev;
+        }
+    }
     // Delete the first node
     public void deleteFirst() {
         if (head == null) return;
