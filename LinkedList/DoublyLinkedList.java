@@ -40,23 +40,33 @@ class DoublyLinkedList {
         newNode.prev = temp;
     }
 
-    // Insert at a specific position
     public void insertAtPosition(int data, int pos) {
-        Node newNode = new Node(data);
-        if (pos == 1) {
-            insertAtBeginning(data);
-            return;
-        }
-        Node temp = head;
-        for (int i = 1; temp != null && i < pos - 1; i++) {
-            temp = temp.next;
-        }
-        if (temp == null) return;
-        newNode.next = temp.next;
-        newNode.prev = temp;
-        if (temp.next != null) temp.next.prev = newNode;
-        temp.next = newNode;
+    Node newNode = new Node(data);
+
+    // Case 1: Insert at position 0 (i.e., at the beginning)
+    if (pos == 0) {
+        newNode.next = head;
+        if (head != null) head.prev = newNode;
+        head = newNode;
+        return;
     }
+
+    // Traverse to the node just before the desired position
+    Node temp = head;
+    for (int i = 0; temp != null && i < pos - 1; i++) {
+        temp = temp.next;
+    }
+
+    // If position is beyond list length, do nothing
+    if (temp == null) return;
+
+    newNode.next = temp.next;
+    newNode.prev = temp;
+
+    if (temp.next != null) temp.next.prev = newNode;
+    temp.next = newNode;
+}
+
 
      // ✅ Delete node by value (clean version)
     public void deleteNode(int value) {
