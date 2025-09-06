@@ -39,3 +39,30 @@ public class DFSExample {
         dfs(0, visited, adj);  // Starting DFS from node 0
     }
 }
+
+  // // Iterative DFS
+  //   public void dfs(int start) {
+  //       boolean[] visited = new boolean[V];
+  //       Stack<Integer> stack = new Stack<>();
+
+  //       // mark visited when pushing
+  //       visited[start] = true;
+  //       stack.push(start);
+
+  //       System.out.print("DFS Traversal: ");
+
+  //       while (!stack.isEmpty()) {
+  //           int node = stack.pop();
+  //           System.out.print(node + " ");
+
+  //           // push all unvisited neighbors
+  //           for (int neighbor : adj.get(node)) {
+  //               if (!visited[neighbor]) {
+  //                   visited[neighbor] = true; // mark visited here
+  //                   stack.push(neighbor);
+  //               }
+  //           }
+  //       }
+
+  //       System.out.println();
+  //   }
