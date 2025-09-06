@@ -58,3 +58,19 @@ public class BFSGraph {
         g.bfs(0); // Start BFS from node 0
     }
 }
+  // // Recursive BFS
+  //   private void bfsHelper(Queue<Integer> queue, boolean[] visited) {
+  //       if (queue.isEmpty()) return;
+
+  //       int node = queue.poll();
+  //       System.out.print(node + " ");
+
+  //       for (int neighbor : adj.get(node)) {
+  //           if (!visited[neighbor]) {
+  //               visited[neighbor] = true;
+  //               queue.offer(neighbor);
+  //           }
+  //       }
+
+  //       bfsHelper(queue, visited); // recurse on remaining queue
+  //   }
