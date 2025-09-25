@@ -8,45 +8,51 @@
 
 // isFull() – Check if queue is full
 
-class ArrayQueue {
+class NormalQueue {
     int[] arr;
-    int front, rear, size, capacity;
+    int front, rear, capacity;
 
-    ArrayQueue(int capacity) {
+    NormalQueue(int capacity) {
         this.capacity = capacity;
         arr = new int[capacity];
-        front = 0;
-        rear = -1;
-        size = 0;
+        front = 0;    // points to first element
+        rear = -1;    // no elements yet
     }
 
-    // Enqueue
-    void enqueue(int data) {
+    // Check if queue is empty
+    boolean isEmpty() {
+        return rear < front;
+    }
+
+    // Check if queue is full
+    boolean isFull() {
+        return rear == capacity - 1;
+    }
+
+    // Enqueue (insert at rear)
+    void enqueue(int x) {
         if (isFull()) {
             System.out.println("Queue is full");
             return;
         }
 
-        rear = (rear + 1) % capacity;
-        arr[rear] = data;
-        size++;
+        rear++;
+        arr[rear] = x;
     }
 
-    // Dequeue
-    int dequeue() {
+    // Dequeue (delete from front)
+    void dequeue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
-            return -1;
+            return;
         }
 
-        int value = arr[front];
-        front = (front + 1) % capacity;
-        size--;
-        return value;
+        System.out.println("Dequeued: " + arr[front]);
+        front++;
     }
 
-    // Peek
-    int peek() {
+    // Get front element
+    int getFront() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
             return -1;
@@ -54,17 +60,16 @@ class ArrayQueue {
         return arr[front];
     }
 
-    // isEmpty
-    boolean isEmpty() {
-        return size == 0;
+    // Get rear element
+    int getRear() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        return arr[rear];
     }
 
-    // isFull
-    boolean isFull() {
-        return size == capacity;
-    }
-
-    // Display
+    // Display queue elements
     void display() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
@@ -72,27 +77,9 @@ class ArrayQueue {
         }
 
         System.out.print("Queue elements: ");
-        for (int i = 0; i < size; i++) {
-            System.out.print(arr[(front + i) % capacity] + " ");
+        for (int i = front; i <= rear; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
-    }
-}
-public class Main {
-    public static void main(String[] args) {
-        ArrayQueue q = new ArrayQueue(5);
-
-        q.enqueue(10);
-        q.enqueue(20);
-        q.enqueue(30);
-        q.display(); // 10 20 30
-
-        System.out.println("Dequeued: " + q.dequeue()); // 10
-        q.display(); // 20 30
-
-        System.out.println("Front element: " + q.peek()); // 20
-
-        System.out.println("Is queue empty? " + q.isEmpty()); // false
-        System.out.println("Is queue full? " + q.isFull());   // false
     }
 }
