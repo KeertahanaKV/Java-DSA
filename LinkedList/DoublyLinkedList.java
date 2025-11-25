@@ -133,6 +133,9 @@ class DoublyLinkedList {
         }
         if (temp != null) head = temp.prev;
     }
+    /*Temp stores the previous pointer of the node before swapping.
+At the end, temp holds the second-last processed node,
+and temp.prev becomes the new head.*/
 
     // Display the list forward
     public void printForward() {
