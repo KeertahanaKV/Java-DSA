@@ -84,3 +84,40 @@ class MinStack {
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
  */
+
+    class MinStack {
+
+    Stack<Integer> main;
+    Stack<Integer> min;
+
+    public MinStack() {
+        main = new Stack<>();
+        min = new Stack<>();
+    }
+
+    public void push(int x) {
+        main.push(x);
+
+        if (min.isEmpty()) {
+            min.push(x);
+        } else {
+            min.push(Math.min(x, min.peek()));
+        }
+    }
+
+    public void pop() {
+        if (!main.isEmpty()) {
+            main.pop();
+            min.pop();
+        }
+    }
+
+    public int top() {
+        return main.peek();
+    }
+
+    public int getMin() {
+        return min.peek();
+    }
+}
+
